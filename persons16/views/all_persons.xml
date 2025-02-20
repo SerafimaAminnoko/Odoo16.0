@@ -10,7 +10,7 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Name: <t t-esc="person.first_name"/></h5>
+                                <h5 class="card-title">Name: <t t-esc="person.full_name"/></h5>
                                 <t t-if="person.sex">
                                     <p class="card-text">Sex: <t t-esc="person.sex"/></p>
                                 </t>
