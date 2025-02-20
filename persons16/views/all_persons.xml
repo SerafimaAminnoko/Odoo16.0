@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<template id="all_persons_template">
+    <t t-call="website.layout">
+        <div class="container">
+            <!-- Display all persons -->
+            <h1 style="margin-top: 20px;">Persons</h1>
+            <div class="row">
+                <t t-foreach="persons" t-as="person">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Name: <t t-esc="person.first_name"/></h5>
+                                <t t-if="person.sex">
+                                    <p class="card-text">Sex: <t t-esc="person.sex"/></p>
+                                </t>
+                                <p class="card-text">Age: <t t-esc="person.age"/></p>
+                                <p class="card-text">Company: <span t-field="person.company_id.name"/></p>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                            .card {
+                                margin-bottom: 20px;
+                                height: 200px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                                }
+                                .card-body {
+                                    padding: 20px;
+                                }
+                            }
+                    </style>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>
+</odoo>

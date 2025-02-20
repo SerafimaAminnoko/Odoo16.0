@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- Action for model Persons -->
+        <record id="person_model_action" model="ir.actions.act_window">
+            <field name="name">Persons</field>
+            <field name="res_model">person</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu in Backend -->
+        <menuitem id="person_model_menu_action" action="person_model_action"/>
+
+        <!-- Tree view -->
+        <record id="person_view_tree" model="ir.ui.view">
+            <field name="name">person.tree</field>
+            <field name="model">person</field>
+            <field name="arch" type="xml">
+                <tree string="Persons">
+                    <field name="company_id"/>
+                    <field name="full_name"/>
+                    <field name="age"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="person_view_form" model="ir.ui.view">
+            <field name="name">person.form</field>
+            <field name="model">person</field>
+            <field name="arch" type="xml">
+                <form string="PersonForm">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="full_name"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="birthday"/>
+                                <field name="age"/>
+                                <field name="sex"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<odoo>
+
+<template id="persons_template">
+    <t t-call="website.layout">
+        <div class="container">
+        <!-- Form for adding persons -->
+            <h1 style="margin-top: 20px;">Add a new person</h1>
+            <form method="post">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="first_name">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="char" name="first_name" id="first_name" class="form-control" placeholder="First Name" required="1"/>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="last_name">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="char" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required="1"/>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="company_id">Company</label>
+                    <div class="col-sm-10">
+                        <select type="char" name="company_id" id="company_id" class="form-control"  required="1">
+                            <opption>Select Company</opption>
+                            <t t-foreach="companies" t-as="company">
+                                <option t-att-value="company.id">
+                                    <t t-out="company.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="birthday">Birthday</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Birthday"/>
+                    </div>
+
+                    <label class="col-sm-2 col-form-label" for="sex">Sex</label>
+                    <div class="col-sm-10">
+                        <select type="char" name="sex" id="sex" class="form-control">
+                            <option value="none">Sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="non-binary">Non-Binary</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-10">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Create</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Display last 5 persons -->
+            <h1 style="margin-top: 20px;">Persons</h1>
+            <div class="row">
+                <t t-foreach="persons" t-as="person">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Name: <t t-esc="person.first_name"/></h5>
+                                <t t-if="person.sex">
+                                    <p class="card-text">Sex: <t t-esc="person.sex"/></p>
+                                </t>
+                                <p class="card-text">Age: <t t-esc="person.age"/></p>
+                                <p class="card-text">Company: <span t-field="person.company_id.name"/></p>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                            .card {
+                                margin-bottom: 20px;
+                                height: 200px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                                }
+                                .card-body {
+                                    padding: 20px;
+                                }
+                            }
+                    </style>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>
+
+</odoo>

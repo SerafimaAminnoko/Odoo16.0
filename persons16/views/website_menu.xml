@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu for last persons and form -->
+    <record id="menu_persons" model="website.menu">
+            <field name="name">LastPersons</field>
+            <field name="url">/last/persons</field>
+            <field name="parent_id" search="[
+            ('parent_id', '=', False),
+            ('website_id', '=', 1)
+            ]"/>
+            <field name="sequence" type="int">10</field>
+            <field name="website_id" ref="website.default_website"/>
+    </record>
+    <!-- Menu for all persons -->
+    <record id="menu_all_persons" model="website.menu">
+            <field name="name">ALLPersons</field>
+            <field name="url">/all/persons</field>
+            <field name="parent_id" search="[
+            ('parent_id', '=', False),
+            ('website_id', '=', 1)
+            ]"/>
+            <field name="sequence" type="int">11</field>
+            <field name="website_id" ref="website.default_website"/>
+    </record>
+
+
+</odoo>
