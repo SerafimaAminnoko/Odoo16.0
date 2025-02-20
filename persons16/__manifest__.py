@@ -7,6 +7,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/persons.xml',
+        'views/persons_list_menu.xml',
         'views/website_menu.xml',
         'views/last_persons.xml',
         'views/all_persons.xml',

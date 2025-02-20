@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="person_model_menu_in_website_backend"
+              name="Persons"
+              parent="website.menu_website_configuration"
+              action="person_model_action"/>
+
+    <menuitem id="person_menu_action_in_backend"
+              name="Persons"
+              parent="person_model_menu_in_website_backend"
+              action="person_model_action"/>
+</odoo>
