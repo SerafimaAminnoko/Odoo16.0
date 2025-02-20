@@ -39,7 +39,7 @@ class PersonsController(http.Controller):
 
     # Display all record from table Persons
     @http.route('/all/persons', methods=['GET'], auth='public', website=True)
-    def last_persons(self, **kwargs):
+    def all_persons(self, **kwargs):
         persons = http.request.env['person'].search([])
         return http.request.render('persons16.all_persons_template', {
             'persons': persons,
